@@ -1,0 +1,100 @@
+<html>
+<head>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<style>
+	input{
+	 padding:5px;
+	 margin:5px;
+	 
+	}
+	
+
+	#heading{
+		
+		color:white;
+	}
+
+	#answer{
+                border:black 2px solid;
+                padding:10px 100px 10px 60px;
+                margin-top: 30px;
+                margin-left:550px;
+                background-color:black;
+				color:white;
+                width:10%;} 
+				#but{
+					background-color:cornsilk;
+					background-image: url("math2.png");
+				} 
+</style>
+	
+</head>
+<body id="but">
+	<div id="title"></div>
+	<div id="root" align="center"></div>	
+	<button id="answer" type="button" class="btn btn-primary btn-block" >RESULT</button>
+</body>
+
+</html>
+
+
+<script type="text/babel">
+class Title extends React.Component {
+		render() {
+			return (<h1 id="heading" align="center">CALCULATOR</h1>);
+		}
+	}
+	
+	ReactDOM.render(<Title />, document.getElementById("title"));
+		
+	class Input extends React.Component {
+		render() {
+			return (
+				<div id="button">
+					
+					<input type="number" name="first number"    placeholder="Enter First Number"/><br/>
+					<input type="number" name="second number"  placeholder="Enter Second Number"/><br/>
+					<button onClick={this.addition} > + </button>
+					<button onClick={this.subtraction} > - </button>
+					<button onClick={this.multiplication} > * </button>
+					<button onClick={this.division} > / </button>
+
+				</div>
+			);
+		}
+		
+		addition = () =>{
+			const name = document.getElementsByName("first number")[0].value;
+			const rollno = document.getElementsByName("second number")[0].value;
+			var namen = parseInt(name, 10);
+			var rollnon = parseInt(rollno, 10);
+	
+			document.getElementById("answer").innerHTML = namen+rollnon;
+		}
+		subtraction = () =>{
+			const name = document.getElementsByName("first number")[0].value;
+			const rollno = document.getElementsByName("second number")[0].value;
+			
+			document.getElementById("answer").innerHTML = name-rollno;
+		}
+		multiplication = () =>{
+			const name = document.getElementsByName("first number")[0].value;
+			const rollno = document.getElementsByName("second number")[0].value;
+		
+			document.getElementById("answer").innerHTML = name*rollno;
+		}
+		division = () =>{
+			const name = document.getElementsByName("first number")[0].value;
+			const rollno = document.getElementsByName("second number")[0].value;
+		
+			document.getElementById("answer").innerHTML = name/rollno;
+		}
+	}
+	
+
+	
+	ReactDOM.render(<Input />, document.getElementById("root"));	
+</script>
